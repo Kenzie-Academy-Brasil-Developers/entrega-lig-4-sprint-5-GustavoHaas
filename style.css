@@ -1,1 +1,9 @@
+div.cell {
+    width: 30px;
+    height: 30px;
+    border: solid blue 2px;
+}
 
+#board{
+    display: flex;
+}
