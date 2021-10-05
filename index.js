@@ -8,7 +8,6 @@ const boardArr = [
 ];
 
 
-
 const board = document.getElementById("board");
 
 
@@ -34,7 +33,9 @@ function buildingBoard(){
             cellDiv.classList.add("cell");
             cellDiv.id = "cell" + c
             targetLine.appendChild(cellDiv)
-
+            cellDiv.addEventListener("click", createDiscBlue) 
+            cellDiv.addEventListener("click", createDiscRed)
+            
         }
 
     }
@@ -42,3 +43,27 @@ function buildingBoard(){
 
 }
 buildingBoard()
+
+const cells = document.querySelectorAll('div', '.cells');
+const lines = document.querySelectorAll('div', '.line')
+
+const handleClick = function(event) {
+    const clickPosition = event.currentTarget;
+    console.log(clickPosition.id);
+}
+
+
+function createDisc (){
+    const disc = document.createElement('div')
+    for(let i =0;i< lines.length; i++){
+        for (let j = 0; j < cells.length; j++) {  
+        disc.classList.add('discBlue')
+        cells[i].appendChild(disc)
+        
+    }
+    console.log(cells.length)
+}
+}
+lines.addEventListener('click', handleClick)
+cells.addEventListener('click', handleClick)     
+
