@@ -7,6 +7,16 @@ const boardArr = [
     "CCCCCCC",
 ];
 
+let currentPlayer = 'player01';
+
+const cells = document.querySelectorAll('div');
+
+const handleClick = function(evt) {
+    const cell = evt.target
+    console.log(cell.id);
+
+}
+
 
 const board = document.getElementById("board");
 
@@ -31,7 +41,7 @@ function buildingBoard(){
             cell = boardArr[l][c];
             const cellDiv = document.createElement("div");
             cellDiv.classList.add("cell");
-            cellDiv.id = "cell" + c
+            cellDiv.id = "cell" + l + c
             targetLine.appendChild(cellDiv)
             cellDiv.addEventListener("click", createDiscBlue) 
             cellDiv.addEventListener("click", createDiscRed)
