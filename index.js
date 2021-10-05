@@ -15,13 +15,6 @@ const handleClick = function(evt) {
     const cell = evt.target
     console.log(cell.id);
 
-
-
-    if (currentPlayer === 'player01') {
-        currentPlayer = 'player02'
-    }else {
-        currentPlayer = 'player01'
-    }
 }
 
 
