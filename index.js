@@ -32,7 +32,7 @@ function buildingBoard(){
             cell = boardArr[l][c];
             const cellDiv = document.createElement("div");
             cellDiv.classList.add("cell");
-            cellDiv.id = "cell" + c
+            cellDiv.id = "cell" + l + c
             targetLine.appendChild(cellDiv)
 
         }
@@ -46,10 +46,11 @@ buildingBoard()
 
 const cells = document.querySelectorAll('div');
 
-for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener('click', handleClick);
-}
 const handleClick = function(evt) {
     const cell = evt.target
     console.log(cell.id);
+}
+
+for (let i = 0; i < cells.length; i++) {
+    cells[i].addEventListener('click', handleClick);
 }
