@@ -42,3 +42,14 @@ function buildingBoard(){
 
 }
 buildingBoard()
+
+
+const cells = document.querySelectorAll('div');
+
+for (let i = 0; i < cells.length; i++) {
+    cells[i].addEventListener('click', handleClick);
+}
+const handleClick = function(evt) {
+    const cell = evt.target
+    console.log(cell.id);
+}
