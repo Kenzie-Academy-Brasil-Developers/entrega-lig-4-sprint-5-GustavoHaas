@@ -4,6 +4,6 @@ div.cell {
     border: solid blue 2px;
 }
 
-#board{
+.line{
     display: flex;
 }
