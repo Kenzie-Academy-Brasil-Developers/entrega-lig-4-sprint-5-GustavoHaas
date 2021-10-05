@@ -7,6 +7,23 @@ const boardArr = [
     "CCCCCCC",
 ];
 
+let currentPlayer = 'player01';
+
+const cells = document.querySelectorAll('div');
+
+const handleClick = function(evt) {
+    const cell = evt.target
+    console.log(cell.id);
+
+
+
+    if (currentPlayer === 'player01') {
+        currentPlayer = 'player02'
+    }else {
+        currentPlayer = 'player01'
+    }
+}
+
 
 
 const board = document.getElementById("board");
@@ -34,6 +51,7 @@ function buildingBoard(){
             cellDiv.classList.add("cell");
             cellDiv.id = "cell" + l + c
             targetLine.appendChild(cellDiv)
+            cellDiv.addEventListener('click', handleClick);
 
         }
 
@@ -42,15 +60,3 @@ function buildingBoard(){
 
 }
 buildingBoard()
-
-
-const cells = document.querySelectorAll('div');
-
-const handleClick = function(evt) {
-    const cell = evt.target
-    console.log(cell.id);
-}
-
-for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener('click', handleClick);
-}
