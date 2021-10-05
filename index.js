@@ -1,10 +1,10 @@
 const boardArr = [
-    "C,C,C,C,C,C,C",
-    "C,C,C,C,C,C,C",
-    "C,C,C,C,C,C,C",
-    "C,C,C,C,C,C,C",
-    "C,C,C,C,C,C,C",
-    "C,C,C,C,C,C,C",
+    "CCCCCCC",
+    "CCCCCCC",
+    "CCCCCCC",
+    "CCCCCCC",
+    "CCCCCCC",
+    "CCCCCCC",
 ];
 
 
@@ -23,15 +23,17 @@ function buildingBoard(){
       
         const lineDiv = document.createElement("div");
         lineDiv.classList.add("line");
-        lineDiv.id = "line" + (l)
+        lineDiv.id = "line" + l
         board.appendChild(lineDiv);
 
+        let targetLine = document.getElementById('line' + l);
+
         for(let c = 0; c < line.length; c ++){
-            cell = line[c];
+            cell = boardArr[l][c];
             const cellDiv = document.createElement("div");
             cellDiv.classList.add("cell");
-            cellDiv.id = "cell" + "c"
-            lineDiv.appendChild(cellDiv)
+            cellDiv.id = "cell" + c
+            targetLine.appendChild(cellDiv)
 
         }
 
