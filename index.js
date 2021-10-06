@@ -20,12 +20,12 @@ const board = document.getElementById("board");
 
 let line = "";
 let cell = "";
-function buildingBoard(){
+function buildingBoard() {
 
-    
-    for(let l = 0; l < boardArr.length; l++){
+
+    for (let l = 0; l < boardArr.length; l++) {
         line = boardArr[l];
-      
+
         const lineDiv = document.createElement("div");
         lineDiv.classList.add("line");
         lineDiv.id = l
@@ -33,7 +33,7 @@ function buildingBoard(){
 
         let targetLine = document.getElementById(l);
 
-        for(let c = 0; c < line.length; c ++){
+        for (let c = 0; c < line.length; c++) {
             const cellDiv = document.createElement("div");
             cellDiv.classList.add("cell");
             cellDiv.id = "cell" + l + c
@@ -66,7 +66,7 @@ function createDisc(evt) {
 
     let linhaAtual = playersArr[lastLine];
     linhaAtual = linhaAtual.split('');
-    linhaAtual[columnNumber] = playerAtual;
+    linhaAtual[columnNumber] = 1;
     linhaAtual = linhaAtual.join('');
     playersArr[lastLine] = linhaAtual;
 }
@@ -75,4 +75,12 @@ const lines = document.querySelectorAll('.line')
 
 for (let i = 0; i < lines.length; i++) {
     lines[i].addEventListener('click', createDisc)
+}
+
+function checkHorizontal() {
+    for (let l = 0; l < playersArr.length; l++) {
+        if (playersArr[l].includes("1111")) {
+            alert("Jogador 1 ganhou!");
+        }
+    }
 }
