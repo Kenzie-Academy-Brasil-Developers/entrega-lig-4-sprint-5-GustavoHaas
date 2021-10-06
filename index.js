@@ -7,20 +7,16 @@ const boardArr = [
     "CCCCCCC",
 ];
 
-let currentPlayer = 'player01';
-
-const cells = document.querySelectorAll('div');
-
-const handleClick = function(evt) {
-    const cell = evt.target
-    console.log(cell.id);
-
-}
-
+let playersArr = [
+    "0000000",
+    "0000000",
+    "0000000",
+    "0000000",
+    "0000000",
+    "0000000",
+];
 
 const board = document.getElementById("board");
-
-
 
 let line = "";
 let cell = "";
@@ -32,48 +28,51 @@ function buildingBoard(){
       
         const lineDiv = document.createElement("div");
         lineDiv.classList.add("line");
-        lineDiv.id = "line" + l
+        lineDiv.id = l
         board.appendChild(lineDiv);
 
-        let targetLine = document.getElementById('line' + l);
+        let targetLine = document.getElementById(l);
 
         for(let c = 0; c < line.length; c ++){
-            cell = boardArr[l][c];
             const cellDiv = document.createElement("div");
             cellDiv.classList.add("cell");
             cellDiv.id = "cell" + l + c
             targetLine.appendChild(cellDiv)
-            cellDiv.addEventListener("click", createDiscBlue) 
-            cellDiv.addEventListener("click", createDiscRed)
-            
         }
-
     }
-
-
 }
+
 buildingBoard()
 
-const cells = document.querySelectorAll('div', '.cells');
-const lines = document.querySelectorAll('div', '.line')
+function createDisc(evt) {
+    const currLine = evt.currentTarget;
+    const currColumn = evt.target;
 
-const handleClick = function(event) {
-    const clickPosition = event.currentTarget;
-    console.log(clickPosition.id);
-}
+    let lineNumber = currLine.id;
+    let idCurrColumn = currColumn.id;
+    let columnNumber = idCurrColumn[idCurrColumn.length - 1]
 
+    let lastLine = 5;
 
-function createDisc (){
-    const disc = document.createElement('div')
-    for(let i =0;i< lines.length; i++){
-        for (let j = 0; j < cells.length; j++) {  
-        disc.classList.add('discBlue')
-        cells[i].appendChild(disc)
-        
+    while (playersArr[lastLine][columnNumber] !== '0') {
+        lastLine--;
     }
-    console.log(cells.length)
-}
-}
-lines.addEventListener('click', handleClick)
-cells.addEventListener('click', handleClick)     
 
+    const last = document.getElementById('cell' + lastLine + columnNumber)
+
+    const disc = document.createElement('div');
+    disc.classList = 'disc'
+    last.appendChild(disc)
+
+    let linhaAtual = playersArr[lastLine];
+    linhaAtual = linhaAtual.split('');
+    linhaAtual[columnNumber] = 1;
+    linhaAtual = linhaAtual.join('');
+    playersArr[lastLine] = linhaAtual;
+}
+
+const lines = document.querySelectorAll('.line')
+
+for (let i = 0; i < lines.length; i++) {
+    lines[i].addEventListener('click', createDisc)
+}
