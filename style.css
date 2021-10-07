@@ -1,26 +1,70 @@
-.cell {
-    width: 30px;
-    height: 30px;
-    border: solid blue 2px;
+body {
+    margin: 0;
+    text-align: center;
+    background-color: #123ABC;
+    background-image: url("./assets/img/night-stars.png");
+    background-position: 0% 100%;
+    animation: bgSlide 20s linear infinite;
 }
 
-.line{
+.cell {
+    width: 32px;
+    height: 32px;
+    border: 4px solid transparent;
+}
+
+.line {
     display: flex;
 }
 
-.discBlue{
-    background-color:blue;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin: 0px;
+#board {
+    background-image: url("./assets/img/pipes.png");
+    background-size: contain;
+    margin: auto;
+    width: fit-content;
 }
 
-.discRed{
-    background-color:red;
-    width: 30px;
-    height: 30px;
+.player1, .player2 {
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     margin: 0px;
+    animation: 0.5s infinite;
 }
 
+.player1 {
+    background-image: url("./assets/img/egg-pink0.png");
+    animation-name: animatePink;
+}
+
+.player2 {
+    background-image: url("./assets/img/egg-red0.png");
+    animation-name: animateRed;
+}
+
+@keyframes animatePink {
+    from {
+        background-image: url("./assets/img/egg-pink0.png");
+    }
+    to {
+        background-image: url("./assets/img/egg-pink1.png");
+    }
+}
+
+@keyframes animateRed {
+    from {
+        background-image: url("./assets/img/egg-red0.png");
+    }
+    to {
+        background-image: url("./assets/img/egg-red1.png");
+    }
+}
+
+@keyframes bgSlide {
+    from {
+        background-position: 0% 100%;
+    }
+    to {
+        background-position: 100% 0%;
+    }
+}

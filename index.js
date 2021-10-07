@@ -69,11 +69,11 @@ function createDisc(evt) {
     playersArr[lastLine][columnNumber] = currentPlayer;
        
         if(currentPlayer === 1){
-            disc.classList = 'discRed'
+            disc.classList = 'player1'
             currentPlayer =2;
          
         }else if(currentPlayer ===2) {
-            disc.classList= 'discBlue'
+            disc.classList = 'player2'
             currentPlayer=1;
         }
     checkVictory(columnNumber);
