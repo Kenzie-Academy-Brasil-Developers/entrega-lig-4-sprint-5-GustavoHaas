@@ -95,11 +95,11 @@ function checkHorizontal() {
     for (let l = 0; l < playersArr.length; l++) {
         let str = playersArr[l].join('')
         if (str.includes("1111")) {
-            alert("Jogador 1 ganhou!");
+            victory("Jogador 1 ganhou!")
         }
 
         if (str.includes("2222")) {
-            alert("Jogador 2 ganhou!");
+            victory("Jogador 2 ganhou!");
         }
     }
 }
@@ -122,7 +122,7 @@ function checkVertical(columnNumber) {
         } else {
             p = 2
         }
-        alert("Jogador " + p +" ganhou!");
+        victory("Jogador " + p +" ganhou!");
     }
 }
 
@@ -151,4 +151,33 @@ function checkDiagonal(columnNumber, lineNumber) {
         }
         console.log(diagonal)
     }
+}
+
+const btnPlay = document.getElementById("btnPlay");
+const btnReset = document.getElementById("btnReset");
+const msg = document.getElementById("msg");
+
+console.log(msg)
+
+const display = document.getElementById("display");
+
+btnPlay.addEventListener("click",play)
+
+btnReset.addEventListener("click",reset)
+
+
+function play(){
+    display.className = "hidden";
+    document.body.appendChild(btnReset)
+    btnReset.className = "show";
+}
+
+function reset(){location.reload()}
+
+function victory(message){
+    display.className = "show";
+    btnPlay.className = "hidden";
+    display.appendChild(btnReset);
+    btnReset.className = "show";
+    msg.innerHTML = message;
 }
