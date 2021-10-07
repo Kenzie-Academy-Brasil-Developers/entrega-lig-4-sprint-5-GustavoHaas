@@ -1,4 +1,4 @@
-div.cell {
+.cell {
     width: 30px;
     height: 30px;
     border: solid blue 2px;
@@ -6,4 +6,13 @@ div.cell {
 
 .line{
     display: flex;
+}
+
+
+.disc{
+    background-color:blue;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0px;
 }
