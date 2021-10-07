@@ -69,11 +69,11 @@ function createDisc(evt) {
     playersArr[lastLine][columnNumber] = currentPlayer;
        
         if(currentPlayer === 1){
-            disc.classList = 'discRed'
+            disc.classList = 'player1'
             currentPlayer =2;
          
         }else if(currentPlayer ===2) {
-            disc.classList= 'discBlue'
+            disc.classList = 'player2'
             currentPlayer=1;
         }
     checkVictory(columnNumber);
@@ -89,6 +89,7 @@ function checkVictory(columnNumber, lineNumber) {
     checkHorizontal();
     checkVertical(columnNumber);
     checkDiagonal(columnNumber, lineNumber);
+    checkTie();
 }
 
 function checkHorizontal() {
@@ -105,18 +106,22 @@ function checkHorizontal() {
 }
 
 function checkVertical(columnNumber) {
-    let vertical = 0;
+    let verticalP1 = 0;
+    let verticalP2 = 0;
     let p = 0;
 
     let l = columnNumber;
     for (let c = 0; c < 6; c++) {
-        if (playersArr[c][l] !== 0) {
-            vertical++;
+        if (playersArr[c][l] === 1) {
+            verticalP1++;
+        } else if (playersArr[c][l] === 2){
+            verticalP2++;
         } else {
-            vertical = 0;
+            verticalP1 = 0;
+            verticalP2 = 0;
         }
     }
-    if (vertical === 4) {
+    if ((verticalP1 === 4) || (verticalP2 === 4)){
         if (currentPlayer === 1) {
             p = 1
         } else {
@@ -127,29 +132,63 @@ function checkVertical(columnNumber) {
 }
 
 function checkDiagonal(columnNumber, lineNumber) {
-    let diagonal = 0;
+    let diagonalP1 = 0;
+    let diagonalP2 = 0;
     let p = 0;
 
-    for (let l = 5; l >= 0; l--) {
+    for (let l = 6; l >= 0; l--) {
         for (let c = 0; c < 6; c++) {
-            if (playersArr[c][l] !== 0) {
-                diagonal++;
+            if (playersArr[c][l] === 1) {
+                diagonalP1++;
+            } else if (playersArr[c][l] === 2) {
+                diagonalP2++;
             } else {
-                diagonal = 0;
+                diagonalP1 = 0;
+                diagonalP2 = 0;
             }
+            if ((diagonalP1 === 4) || (diagonalP2 === 4)){
+                if (currentPlayer === 1) {
+                    p = 1
+                } else {
+                    p = 2
+                }
+                alert("Jogador " + p +" ganhou!!!!");
+            }
+            l--;
         }
-        console.log(diagonal)
     }
+    diagonalP1 = 0;
+    diagonalP2 = 0;
 
-    for (let l = 5; l >= 0; l--) {
+    for (let l = 6; l >= 0; l--) {
+        let a = 6;
         for (let c = 5; c >= 0; c--) {
-            if (playersArr[c][l] !== 0) {
-                diagonal++;
+            if (playersArr[c][a] === 1) {
+                diagonalP1++;
+            } else if (playersArr[c][a] === 2) {
+                diagonalP2++;
             } else {
-                diagonal = 0;
+                diagonalP1 = 0;
+                diagonalP2 = 0;
             }
+            if ((diagonalP1 === 4) || (diagonalP2 === 4)){
+                if (currentPlayer === 1) {
+                    p = 1
+                } else {
+                    p = 2
+                }
+                alert("Jogador " + p +" ganhou!!!!!");
+            }
+            a--;
         }
-        console.log(diagonal)
+    }   
+}
+
+function checkTie() {
+    let arrStr = playersArr.join('');
+
+    if (arrStr.includes('0') === false) {
+        alert('Empate')
     }
 }
 
