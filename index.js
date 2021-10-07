@@ -136,11 +136,12 @@ function checkDiagonal(columnNumber, lineNumber) {
     let diagonalP2 = 0;
     let p = 0;
 
-    for (let l = 5; l >= 0; l--) {
+    for (let l = 6; l >= 0; l--) {
+        let a = 6;
         for (let c = 0; c < 6; c++) {
-            if (playersArr[c][l] === 1) {
+            if (playersArr[c][a] === 1) {
                 diagonalP1++;
-            } else if (playersArr[c][l] === 2) {
+            } else if (playersArr[c][a] === 2) {
                 diagonalP2++;
             } else {
                 diagonalP1 = 0;
@@ -154,7 +155,7 @@ function checkDiagonal(columnNumber, lineNumber) {
                 }
                 victory("Jogador " + p +" ganhou!");
             }
-            l--;
+            a--;
         }
     }
     diagonalP1 = 0;
