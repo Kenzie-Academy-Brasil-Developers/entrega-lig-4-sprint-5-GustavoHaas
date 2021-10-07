@@ -69,12 +69,19 @@ function createDisc(evt) {
     linhaAtual[columnNumber] = 1;
     linhaAtual = linhaAtual.join('');
     playersArr[lastLine] = linhaAtual;
+    checkVictory();
 }
 
 const lines = document.querySelectorAll('.line')
 
 for (let i = 0; i < lines.length; i++) {
     lines[i].addEventListener('click', createDisc)
+}
+
+function checkVictory() {
+    checkHorizontal();
+    // checkVertical();
+    // checkDiagonal();
 }
 
 function checkHorizontal() {
@@ -84,3 +91,21 @@ function checkHorizontal() {
         }
     }
 }
+
+// function checkVertical() {
+//     let vertical = 0;
+//     for (let l = 0; l < playersArr.length; l++) {
+//         for (let c = 0; c < playersArr[l].length; c++) {
+//             if (playersArr[l][c] === 1) {
+//                 vertical++;
+//             } else {
+//                 vertical = 0;
+//             }
+//         }
+//     }
+//     if (vertical === 4) {
+//         alert("Jogador 1 ganhou!");
+//     }
+// }
+
+// function checkDiagonal() {}
