@@ -59,6 +59,84 @@ body {
         background-image: url("./assets/img/egg-red1.png");
     }
 }
+.hidden {
+    display: none;
+}
+
+div#display{
+    background-color: #000;
+    position: absolute;
+    width: 300px;
+    height: 190px;
+    margin: 0 auto;
+}
+
+
+div#display p{
+    font-family: 'VT323', monospace;
+    color: #fff;
+    margin: 0 a
+}
+
+
+button#btnPlay , #btnReset{
+    margin-bottom: 300px;
+    height: 40px;
+    padding: 5px;
+    border-radius: 10px;
+    background: rgb(249,251,63);
+    background: radial-gradient(circle, rgba(249,251,63,0.9817767653758542) 0%, rgba(251,181,63,1) 100%);
+    color: #fff;
+    text-shadow: 0px 0px 3px #000;
+    border: solid 2px rgb(163, 126, 4);
+    font-weight: bold;
+    box-shadow: 2px 2px 5px 2px #000000;
+
+}
+
+button#btnPlay:hover, #btnReset:hover{
+    cursor:pointer;
+    color: #000;
+    
+}
+
+button#btnReset{
+    width: 70px;
+    height: 60px;
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+body{
+    text-align: center;
+    
+}
+
+@media screen and (min-width: 768px){
+
+    div#display{
+        width: 600px;
+        height: 350px;
+    }
+
+    div#display p{
+        font-size: 30px;
+        padding: 10px;
+    }
+
+
+    button#btnPlay{
+        height: 72px;
+        width: 72px;
+        font-size: 20px;
 
 @keyframes bgSlide {
     from {
