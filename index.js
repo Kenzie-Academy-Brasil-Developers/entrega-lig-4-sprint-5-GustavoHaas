@@ -68,7 +68,7 @@ function createDisc(evt) {
 
     let linhaAtual = playersArr[lastLine];
     linhaAtual = linhaAtual.split('');
-    linhaAtual[columnNumber] = 1;
+    linhaAtual[columnNumber] = currentPlayer;
        
         if(currentPlayer === 1){
             disc.classList = 'discRed'
