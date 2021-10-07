@@ -72,7 +72,7 @@ div#display{
 }
 
 
-div#display p{
+div#display p, h1{
     font-family: 'VT323', monospace;
     color: #fff;
     margin: 0 a

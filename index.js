@@ -136,7 +136,7 @@ function checkDiagonal(columnNumber, lineNumber) {
     let diagonalP2 = 0;
     let p = 0;
 
-    for (let l = 6; l >= 0; l--) {
+    for (let l = 5; l >= 0; l--) {
         for (let c = 0; c < 6; c++) {
             if (playersArr[c][l] === 1) {
                 diagonalP1++;
@@ -152,7 +152,7 @@ function checkDiagonal(columnNumber, lineNumber) {
                 } else {
                     p = 2
                 }
-                alert("Jogador " + p +" ganhou!!!!");
+                victory("Jogador " + p +" ganhou!");
             }
             l--;
         }
@@ -177,7 +177,7 @@ function checkDiagonal(columnNumber, lineNumber) {
                 } else {
                     p = 2
                 }
-                alert("Jogador " + p +" ganhou!!!!!");
+                victory("Jogador " + p +" ganhou!");
             }
             a--;
         }
@@ -188,7 +188,7 @@ function checkTie() {
     let arrStr = playersArr.join('');
 
     if (arrStr.includes('0') === false) {
-        alert('Empate')
+        victory("Empate");
     }
 }
 
