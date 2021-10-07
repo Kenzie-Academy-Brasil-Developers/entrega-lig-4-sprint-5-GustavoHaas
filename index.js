@@ -89,17 +89,18 @@ function checkVictory(columnNumber, lineNumber) {
     checkHorizontal();
     checkVertical(columnNumber);
     checkDiagonal(columnNumber, lineNumber);
+    checkTie();
 }
 
 function checkHorizontal() {
     for (let l = 0; l < playersArr.length; l++) {
         let str = playersArr[l].join('')
         if (str.includes("1111")) {
-            alert("Jogador 1 ganhou!");
+            alert("Jogador 1 ganhou!!");
         }
 
         if (str.includes("2222")) {
-            alert("Jogador 2 ganhou!");
+            alert("Jogador 2 ganhou!!");
         }
     }
 }
@@ -126,7 +127,7 @@ function checkVertical(columnNumber) {
         } else {
             p = 2
         }
-        alert("Jogador " + p +" ganhou!");
+        alert("Jogador " + p +" ganhou!!!");
     }
 }
 
@@ -151,17 +152,18 @@ function checkDiagonal(columnNumber, lineNumber) {
                 } else {
                     p = 2
                 }
-                alert("Jogador " + p +" ganhou!");
+                alert("Jogador " + p +" ganhou!!!!");
             }
             l--;
         }
     }
 
     for (let l = 6; l >= 0; l--) {
+        let a = 6;
         for (let c = 5; c >= 0; c--) {
-            if (playersArr[c][l] === 1) {
+            if (playersArr[c][a] === 1) {
                 diagonalP1++;
-            } else if (playersArr[c][l] === 2) {
+            } else if (playersArr[c][a] === 2) {
                 diagonalP2++;
             } else {
                 diagonalP1 = 0;
@@ -173,14 +175,18 @@ function checkDiagonal(columnNumber, lineNumber) {
                 } else {
                     p = 2
                 }
-                alert("Jogador " + p +" ganhou!");
+                alert("Jogador " + p +" ganhou!!!!!");
             }
-            console.log(diagonalP1)
-            console.log(diagonalP2)
-            l--;
+            a--;
         }
+    }   
+}
 
+function checkTie() {
+    let arrStr = playersArr.join('');
+    console.log(arrStr)
+
+    if (arrStr.includes('0') === false) {
+        alert('Empate')
     }
-    
-    
 }
