@@ -8,11 +8,19 @@
     display: flex;
 }
 
-
-.disc{
+.discBlue{
     background-color:blue;
     width: 30px;
     height: 30px;
     border-radius: 50%;
     margin: 0px;
 }
+
+.discRed{
+    background-color:red;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0px;
+}
+
