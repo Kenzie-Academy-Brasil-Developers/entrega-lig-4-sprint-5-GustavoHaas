@@ -145,10 +145,19 @@ function checkDiagonal(columnNumber, lineNumber) {
                 diagonalP1 = 0;
                 diagonalP2 = 0;
             }
+            if ((diagonalP1 === 4) || (diagonalP2 === 4)){
+                if (currentPlayer === 1) {
+                    p = 1
+                } else {
+                    p = 2
+                }
+                alert("Jogador " + p +" ganhou!");
+            }
+            l--;
         }
     }
 
-    for (let l = 5; l >= 0; l--) {
+    for (let l = 6; l >= 0; l--) {
         for (let c = 5; c >= 0; c--) {
             if (playersArr[c][l] === 1) {
                 diagonalP1++;
@@ -158,15 +167,20 @@ function checkDiagonal(columnNumber, lineNumber) {
                 diagonalP1 = 0;
                 diagonalP2 = 0;
             }
+            if ((diagonalP1 === 4) || (diagonalP2 === 4)){
+                if (currentPlayer === 1) {
+                    p = 1
+                } else {
+                    p = 2
+                }
+                alert("Jogador " + p +" ganhou!");
+            }
+            console.log(diagonalP1)
+            console.log(diagonalP2)
+            l--;
         }
+
     }
-    if ((diagonalP1 === 4) || (diagonalP2 === 4)){
-        if (currentPlayer === 1) {
-            p = 1
-        } else {
-            p = 2
-        }
-        alert("Jogador " + p +" ganhou!");
-    }
+    
     
 }
