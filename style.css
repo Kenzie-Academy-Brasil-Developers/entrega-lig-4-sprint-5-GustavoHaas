@@ -71,8 +71,13 @@ div#display{
     margin: 0 auto;
 }
 
+h1{
+    font-family: 'VT323', monospace;
+    color: #fff;
+}
 
-div#display p, h1{
+
+div#display p {
     font-family: 'VT323', monospace;
     color: #fff;
     margin: 0 a
