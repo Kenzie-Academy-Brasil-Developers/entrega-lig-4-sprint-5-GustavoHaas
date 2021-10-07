@@ -85,10 +85,10 @@ for (let i = 0; i < lines.length; i++) {
     lines[i].addEventListener('click', createDisc)
 }
 
-function checkVictory(columnNumber, lineNumber) {
+function checkVictory(columnNumber) {
     checkHorizontal();
     checkVertical(columnNumber);
-    checkDiagonal(columnNumber, lineNumber);
+    checkDiagonal();
     checkTie();
 }
 
@@ -131,19 +131,26 @@ function checkVertical(columnNumber) {
     }
 }
 
-function checkDiagonal(columnNumber, lineNumber) {
+function checkDiagonal() {
     let diagonalP1 = 0;
     let diagonalP2 = 0;
     let p = 0;
+    let b = 0;
+    let d = 0;
 
     for (let l = 5; l >= 0; l--) {
+        let a = 5;
+        d = b
         for (let c = 0; c < 6; c++) {
-            if (playersArr[c][l] === 1) {
+            if (playersArr[a][d] === 1) {
                 diagonalP1++;
-            } else if (playersArr[c][l] === 2) {
-                diagonalP2++;
             } else {
                 diagonalP1 = 0;
+            }
+            
+            if (playersArr[a][d] === 2) {
+                diagonalP2++;
+            } else {
                 diagonalP2 = 0;
             }
             if ((diagonalP1 === 4) || (diagonalP2 === 4)){
@@ -154,18 +161,24 @@ function checkDiagonal(columnNumber, lineNumber) {
                 }
                 victory("Jogador " + p +" ganhou!");
             }
-            l--;
+            a--;
+            d++;
         }
+        b++;
     }
     diagonalP1 = 0;
     diagonalP2 = 0;
 
-    for (let l = 6; l >= 0; l--) {
-        let a = 6;
-        for (let c = 5; c >= 0; c--) {
-            if (playersArr[c][a] === 1) {
+
+    b = playersArr[1].length - 1;
+    d = playersArr[1].length - 1;
+    for (let l = 5; l >= 0; l--) {
+        let a = 5;
+        d = b
+        for (let c = 0; c < 6; c++) {
+            if (playersArr[a][d] === 1) {
                 diagonalP1++;
-            } else if (playersArr[c][a] === 2) {
+            } else if (playersArr[a][d] === 2) {
                 diagonalP2++;
             } else {
                 diagonalP1 = 0;
@@ -180,7 +193,9 @@ function checkDiagonal(columnNumber, lineNumber) {
                 victory("Jogador " + p +" ganhou!");
             }
             a--;
+            d--;
         }
+        b--;
     }   
 }
 
@@ -195,8 +210,6 @@ function checkTie() {
 const btnPlay = document.getElementById("btnPlay");
 const btnReset = document.getElementById("btnReset");
 const msg = document.getElementById("msg");
-
-console.log(msg)
 
 const display = document.getElementById("display");
 
