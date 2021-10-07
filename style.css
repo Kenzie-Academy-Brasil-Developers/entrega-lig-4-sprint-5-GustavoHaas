@@ -59,11 +59,12 @@ body {
         background-image: url("./assets/img/egg-red1.png");
     }
 }
+
 .hidden {
     display: none;
 }
 
-div#display{
+div#display {
     background-color: #000;
     position: absolute;
     width: 300px;
@@ -71,11 +72,23 @@ div#display{
     margin: 0 auto;
 }
 
-h1{
+h1 {
     font-family: 'VT323', monospace;
-    color: #fff;
+    color: transparent;
+    background-image: url("./assets/img/lig-four0.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: animateTitle 0.5s infinite;
 }
 
+@keyframes animateTitle {
+    from {
+        background-image: url("./assets/img/lig-four0.png");
+    }
+    to {
+        background-image: url("./assets/img/lig-four1.png");
+    }
+}
 
 div#display p {
     font-family: 'VT323', monospace;
@@ -83,29 +96,26 @@ div#display p {
     margin: 0 a
 }
 
-
-button#btnPlay , #btnReset{
+button#btnPlay, #btnReset {
     margin-bottom: 300px;
     height: 40px;
     padding: 5px;
     border-radius: 10px;
-    background: rgb(249,251,63);
-    background: radial-gradient(circle, rgba(249,251,63,0.9817767653758542) 0%, rgba(251,181,63,1) 100%);
+    background: rgb(249, 251, 63);
+    background: radial-gradient(circle, rgba(249, 251, 63, 0.9817767653758542) 0%, rgba(251, 181, 63, 1) 100%);
     color: #fff;
     text-shadow: 0px 0px 3px #000;
     border: solid 2px rgb(163, 126, 4);
     font-weight: bold;
     box-shadow: 2px 2px 5px 2px #000000;
-
 }
 
-button#btnPlay:hover, #btnReset:hover{
-    cursor:pointer;
+button#btnPlay:hover, #btnReset:hover {
+    cursor: pointer;
     color: #000;
-    
 }
 
-button#btnReset{
+button#btnReset {
     width: 70px;
     height: 60px;
     margin-top: 30px;
@@ -115,33 +125,30 @@ button#btnReset{
     text-align: center;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
 }
 
-body{
+body {
     text-align: center;
-    
 }
 
-@media screen and (min-width: 768px){
-
-    div#display{
+@media screen and (min-width: 768px) {
+    div#display {
         width: 600px;
         height: 350px;
     }
-
-    div#display p{
+    div#display p {
         font-size: 30px;
         padding: 10px;
     }
-
-
-    button#btnPlay{
+    button#btnPlay {
         height: 72px;
         width: 72px;
         font-size: 20px;
+    }
+}
 
 @keyframes bgSlide {
     from {
