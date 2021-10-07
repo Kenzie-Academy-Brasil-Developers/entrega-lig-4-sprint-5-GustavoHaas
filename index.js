@@ -44,6 +44,8 @@ function buildingBoard(){
 
 buildingBoard()
 
+let currentPlayer = 1;
+
 function createDisc(evt) {
     const currLine = evt.currentTarget;
     const currColumn = evt.target;
@@ -61,12 +63,22 @@ function createDisc(evt) {
     const last = document.getElementById('cell' + lastLine + columnNumber)
 
     const disc = document.createElement('div');
-    disc.classList = 'disc'
+   
     last.appendChild(disc)
 
     let linhaAtual = playersArr[lastLine];
     linhaAtual = linhaAtual.split('');
-    linhaAtual[columnNumber] = playerAtual;
+    linhaAtual[columnNumber] = 1;
+       
+        if(currentPlayer === 1){
+            disc.classList = 'discRed'
+            currentPlayer =2;
+         
+        }else if(currentPlayer ===2) {
+            disc.classList= 'discBlue'
+            currentPlayer=1;
+        }
+
     linhaAtual = linhaAtual.join('');
     playersArr[lastLine] = linhaAtual;
 }
@@ -75,4 +87,5 @@ const lines = document.querySelectorAll('.line')
 
 for (let i = 0; i < lines.length; i++) {
     lines[i].addEventListener('click', createDisc)
+    
 }
