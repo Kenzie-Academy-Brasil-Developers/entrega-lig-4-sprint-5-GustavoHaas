@@ -123,9 +123,9 @@ function checkVertical(columnNumber) {
     }
     if ((verticalP1 === 4) || (verticalP2 === 4)){
         if (currentPlayer === 1) {
-            p = 1
-        } else {
             p = 2
+        } else {
+            p = 1
         }
         victory("Jogador " + p +" ganhou!");
     }
@@ -155,9 +155,9 @@ function checkDiagonal() {
             }
             if ((diagonalP1 === 4) || (diagonalP2 === 4)){
                 if (currentPlayer === 1) {
-                    p = 1
-                } else {
                     p = 2
+                } else {
+                    p = 1
                 }
                 victory("Jogador " + p +" ganhou!");
             }
@@ -186,9 +186,9 @@ function checkDiagonal() {
             }
             if ((diagonalP1 === 4) || (diagonalP2 === 4)){
                 if (currentPlayer === 1) {
-                    p = 1
-                } else {
                     p = 2
+                } else {
+                    p = 1
                 }
                 victory("Jogador " + p +" ganhou!");
             }
