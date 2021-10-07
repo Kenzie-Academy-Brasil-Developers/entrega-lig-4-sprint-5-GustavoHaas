@@ -96,11 +96,11 @@ function checkHorizontal() {
     for (let l = 0; l < playersArr.length; l++) {
         let str = playersArr[l].join('')
         if (str.includes("1111")) {
-            alert("Jogador 1 ganhou!!");
+            victory("Jogador 1 ganhou!")
         }
 
         if (str.includes("2222")) {
-            alert("Jogador 2 ganhou!!");
+            victory("Jogador 2 ganhou!");
         }
     }
 }
@@ -127,7 +127,7 @@ function checkVertical(columnNumber) {
         } else {
             p = 2
         }
-        alert("Jogador " + p +" ganhou!!!");
+        victory("Jogador " + p +" ganhou!");
     }
 }
 
@@ -136,7 +136,7 @@ function checkDiagonal(columnNumber, lineNumber) {
     let diagonalP2 = 0;
     let p = 0;
 
-    for (let l = 6; l >= 0; l--) {
+    for (let l = 5; l >= 0; l--) {
         for (let c = 0; c < 6; c++) {
             if (playersArr[c][l] === 1) {
                 diagonalP1++;
@@ -152,7 +152,7 @@ function checkDiagonal(columnNumber, lineNumber) {
                 } else {
                     p = 2
                 }
-                alert("Jogador " + p +" ganhou!!!!");
+                victory("Jogador " + p +" ganhou!");
             }
             l--;
         }
@@ -177,7 +177,7 @@ function checkDiagonal(columnNumber, lineNumber) {
                 } else {
                     p = 2
                 }
-                alert("Jogador " + p +" ganhou!!!!!");
+                victory("Jogador " + p +" ganhou!");
             }
             a--;
         }
@@ -188,6 +188,35 @@ function checkTie() {
     let arrStr = playersArr.join('');
 
     if (arrStr.includes('0') === false) {
-        alert('Empate')
+        victory("Empate");
     }
+}
+
+const btnPlay = document.getElementById("btnPlay");
+const btnReset = document.getElementById("btnReset");
+const msg = document.getElementById("msg");
+
+console.log(msg)
+
+const display = document.getElementById("display");
+
+btnPlay.addEventListener("click",play)
+
+btnReset.addEventListener("click",reset)
+
+
+function play(){
+    display.className = "hidden";
+    document.body.appendChild(btnReset)
+    btnReset.className = "show";
+}
+
+function reset(){location.reload()}
+
+function victory(message){
+    display.className = "show";
+    btnPlay.className = "hidden";
+    display.appendChild(btnReset);
+    btnReset.className = "show";
+    msg.innerHTML = message;
 }
