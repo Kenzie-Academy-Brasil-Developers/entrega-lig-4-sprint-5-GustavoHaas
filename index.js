@@ -114,18 +114,21 @@ function checkVertical(columnNumber) {
     for (let c = 0; c < 6; c++) {
         if (playersArr[c][l] === 1) {
             verticalP1++;
-        } else if (playersArr[c][l] === 2){
-            verticalP2++;
         } else {
             verticalP1 = 0;
+        }
+        
+        if (playersArr[c][l] === 2){
+            verticalP2++;
+        } else {
             verticalP2 = 0;
         }
     }
     if ((verticalP1 === 4) || (verticalP2 === 4)){
         if (currentPlayer === 1) {
-            p = 2
-        } else {
             p = 1
+        } else {
+            p = 2
         }
         victory("Jogador " + p +" ganhou!");
     }
